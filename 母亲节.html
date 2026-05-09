@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致亲爱的妈妈 - 20周年快乐</title>
+    <style>
+        :root {
+            --primary-color: #d46a6a; /* 温暖的砖红色 */
+            --accent-color: #f4a261; /* 暖橙色 */
+            --bg-color: #fdfbf7; /* 米白色纸张感背景 */
+            --text-color: #5d4037; /* 深褐色文字 */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 爱心背景 */
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary-color);
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 头部 */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, #fff, var(--bg-color));
+        }
+
+        h1 {
+            font-family: "Songti SC", serif;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* 信件主体 */
+        .letter-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(212, 106, 106, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid rgba(212, 106, 106, 0.1);
+        }
+
+        .letter-card::before {
+            content: '💌';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 40px;
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 时间轴样式 */
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* 照片区域 */
+        .photo-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: #eee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 底部按钮 */
+        .footer-action {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .btn-love {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(212, 106, 106, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-love:active {
+            transform: scale(0.95);
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .letter-card { padding: 20px; }
+            .timeline-item { padding-left: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <header>
+        <h1>To 亲爱的妈妈</h1>
+        <div class="year-badge">✨ 成为母亲的第 20 个年头 ✨</div>
+    </header>
+
+    <div class="container">
+        <!-- 信件内容 -->
+        <div class="letter-card">
+            <p>今年是你成为母亲的第20个年头了哦！时间过的好快，但是妈妈还是和我刚出生的时候一样，一点没变，可能真的是<span class="highlight">岁月不败美人</span>吧，永远18岁！</p >
+
+            <p>妈妈，谢谢你，用一生的温柔与辛劳，撑起了我整个世界。</p >
+
+            <!-- 回忆时间轴 -->
+            <div class="timeline-item">
+                <span class="timeline-title">🏃‍♀️ 初中体考</span>
+                没法跑步，你给我送药，急得都哭了，害你替我担心。
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-title">🏠 高中时光</span>
+                不管刮风下雨，你总会准时接送我。每次回到宿舍，看到柜子里的零食，心里就“嘿嘿，我妈妈给我买的”。
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-title">🧦 爱的“偷袭”</span>
+                准备洗袜子发现被洗掉了，才想起来是你下午来过。你总是这样，默默为我打理好生活里的一切琐碎。
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-title">🍟 怀妹妹的日子</span>
+                总是吵着吃炸洋芋片，你就说写完这页纸的字，就让我买。你从不说苦，也从不喊累。
+            </div>
+
+            <p>现在我渐渐长大，也慢慢学会了体谅你的不易。我多想时光慢些走，让我有更多的时间陪伴你。</p >
+            
+            <p style="text-align: right; font-weight: bold; margin-top: 30px;">
+                —— 爱你的倩
+            </p >
+        </div>
+
+        <!-- 照片区 -->
+        <div class="photo-placeholder">
+            <!-- 如果有照片，把下面的注释取消，并填入图片路径 -->
+            <img src="mom.jpg" alt="mom.jpg">
+        </div>
+
+        <div class="footer-action">
+            <button class="btn-love" onclick="sendLove()">妈妈，我爱你 ❤️</button>
+        </div>
+    </div>
+
+    <script>
+        // 爱心特效
+        function createHeart() {
+            const container = document.getElementById('hearts-container');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 300);
+
+        // 按钮互动
+        function sendLove() {
+            alert('母上大人，节日快乐！\n感谢您做我的妈妈，\n这是我此生最大的幸运与福气。');
+            // 点击后爆发爱心
+            for(let i=0; i<30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
